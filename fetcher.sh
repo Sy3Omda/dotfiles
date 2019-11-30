@@ -1,0 +1,1 @@
+xargs -n1 -P30 -i sh -c 'curl -o /dev/null --keepalive-time 2 --connect-timeout 2 --silent --head --write-out "%{http_code} {}\n" "{}"' < $1 | grep "^$2.*$"
